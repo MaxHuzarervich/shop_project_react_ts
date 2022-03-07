@@ -6,17 +6,18 @@ export const Wrapper = styled.div`
   font-family: Arial, sans-serif;
   border-bottom: 1px solid lightslategray;
   padding-bottom: 20px;
-  
-  
+
+
   div {
     flex: 1;
   }
-  
-  .information, .button {
+
+  .information,
+  .buttons {
     display: flex;
     justify-content: space-between;
-  } 
-  
+  }
+
   img {
     max-width: 80px;
     object-fit: cover;
