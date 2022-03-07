@@ -1,6 +1,7 @@
 import {useState} from 'react';
 import {useQuery} from 'react-query';
 //Components
+import {Cart} from "./Cart/Cart";
 import {Item} from "./Item/Item";
 import Drawer from '@material-ui/core/Drawer';
 import {isKeyObject} from 'util/types';
@@ -16,7 +17,7 @@ export type CartItemType = {
     category: string;
     description: string;
     image: string;
-    price: string;
+    price: number;
     title: string;
     amount: number;
 }
@@ -43,7 +44,10 @@ const App = () => {
     return (
         <Wrapper>
             <Drawer anchor='right' open={cartOpen} onClose={() => setCartOpen(false)}>
-                Cart goes here
+                <Cart
+                    cartItems={cartItems}
+                    addToCart={handleAddToCart}
+                    removeFromCart={handleRemoveFromCart}/>
             </Drawer>
             <StyledButton onClick={() => setCartOpen(true)}>
                 <Badge badgeContent={getTotalItems(cartItems)} color='error'>
