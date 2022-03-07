@@ -34,7 +34,21 @@ const App = () => {
         getTotalItems = (items: CartItemType[]) =>
             items.reduce((ack, item) => ack + item.amount, 0),
 
-        handleAddToCart = (clickedItem: CartItemType) => null,
+        handleAddToCart = (clickedItem: CartItemType) =>
+        setCartItems(prev => {
+            //1. Is the item already added in the cart?
+            const isItemInCart = prev.find(item => item.id === clickedItem.id)
+
+            if(isItemInCart) {
+                return prev.map(item => (
+                    item.id === clickedItem.id
+                    ? { ...item, amount: item.amount + 1}
+                    : item
+                ))
+            }
+            //First time the item is added
+            return [...prev, { ...clickedItem, amount: 1}]
+        }),
 
         handleRemoveFromCart = () => null;
 
