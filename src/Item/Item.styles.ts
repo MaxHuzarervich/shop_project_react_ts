@@ -5,8 +5,8 @@ export const Wrapper = styled.div`
   justify-content: space-between;
   flex-direction: column;
   width: 100%;
-  border: 2px solid lightslategray;
-  border-radius: 10px;
+  border: 1px solid lightslategray;
+  border-radius: 20px;
   height: 100%;
   
   button {
